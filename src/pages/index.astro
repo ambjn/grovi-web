@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/lib/constants';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Grovi – Launching Soon"
+  description="Grovi turns your ideas into playable mini apps. Launching soon."
+  canonical={SITE_URL}
+  ogTitle="Grovi – Launching Soon"
+  ogDescription="Grovi turns your ideas into playable mini apps. Launching soon."
+  ogUrl={SITE_URL}
+  twitterDescription="Grovi turns your ideas into playable mini apps. Launching soon."
+>
+  <main class="min-h-screen flex items-center justify-center px-5 overflow-hidden relative">
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="absolute top-0 left-1/4 w-[260px] h-[260px] sm:w-[500px] sm:h-[500px] bg-brand-400/[0.1] sm:bg-brand-400/[0.08] blur-[90px] sm:blur-[140px] rounded-full"></div>
+      <div class="absolute bottom-1/4 right-[10%] w-[220px] h-[220px] sm:w-[400px] sm:h-[400px] bg-blush-400/8 sm:bg-blush-400/6 blur-[90px] sm:blur-[130px] rounded-full"></div>
+    </div>
+    <div class="relative z-10 flex flex-col items-center text-center fade-up">
+      <div class="relative mb-6">
+        <div class="absolute inset-0 bg-brand-400/30 blur-2xl rounded-full -z-10"></div>
+        <img
+          src="/adaptive-icon.png"
+          alt="Grovi"
+          width="300"
+          height="300"
+          fetchpriority="high"
+          class="w-36 h-36 sm:w-44 sm:h-44 rounded-[2.4rem] shadow-lg shadow-brand-500/20"
+        />
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-3">Grovi Builds</h1>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-500">Launching Soon</p>
+    </div>
+  </main>
 </Layout>

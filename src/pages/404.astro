@@ -1,0 +1,26 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { SITE_URL } from '@/lib/constants';
+---
+
+<Layout
+  title="Page Not Found – Grovi"
+  description="The page you're looking for doesn't exist. Head back to the Grovi home page."
+  canonical={`${SITE_URL}/404`}
+>
+  <main class="min-h-screen flex items-center justify-center px-5">
+    <div class="text-center max-w-md">
+      <p class="text-7xl font-semibold uppercase tracking-widest text-brand-500 mb-4">404</p>
+      <h1 class="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-4">Page not found</h1>
+      <p class="text-muted-foreground font-light mb-8 leading-relaxed">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-85 transition-opacity"
+      >
+        Go home
+      </a>
+    </div>
+  </main>
+</Layout>
