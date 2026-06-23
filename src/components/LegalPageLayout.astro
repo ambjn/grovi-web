@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+const { title, subtitle } = Astro.props;
+---
+<main class="min-h-screen bg-background text-foreground">
+  <div class="max-w-3xl mx-auto px-5 sm:px-6 py-16 sm:py-28">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-xl text-muted-foreground hover:text-foreground transition-colors duration-200 group mb-12"
+    >
+      <span class="flex items-center justify-center w-8 h-8 rounded-full border border-border bg-card group-hover:border-border/80 group-hover:bg-secondary transition-all duration-200">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M8.5 3L5 7l3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+      Back
+    </a>
+    <div class="relative rounded-4xl sm:rounded-[2.5rem] border border-border bg-card overflow-hidden p-6 sm:p-12 md:p-16 shadow-sm">
+      <div class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent"></div>
+      <h1 class="text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-2">
+        {title}
+      </h1>
+      {subtitle && <p class="text-muted-foreground/60 text-sm mb-10">{subtitle}</p>}
+      <div class="space-y-8 text-muted-foreground font-light leading-relaxed">
+        <slot />
+      </div>
+    </div>
+  </div>
+</main>

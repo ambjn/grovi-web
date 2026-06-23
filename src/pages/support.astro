@@ -1,0 +1,41 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import LegalPageLayout from '@/components/LegalPageLayout.astro';
+import { renderContentToHtml } from '@/lib/markdown';
+import { SITE_URL } from '@/lib/constants';
+import content from '@/content/legal/support.md?raw';
+
+const contentHtml = renderContentToHtml(content);
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/support`,
+      name: "Support – Grovi",
+      url: `${SITE_URL}/support`,
+      description: "Get help with Grovi: how to build, publish, remix, manage credits, and delete your account.",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Support", item: `${SITE_URL}/support` },
+      ],
+    },
+  ],
+});
+---
+
+<Layout
+  title="Support – Grovi"
+  description="Get help with Grovi: answers to common questions about accounts, credits, publishing, remixing, reporting content, and deleting your account."
+  canonical={`${SITE_URL}/support`}
+  extraJsonLd={jsonLd}
+>
+  <LegalPageLayout title="Support" subtitle="We're here to help.">
+    <div set:html={contentHtml} />
+  </LegalPageLayout>
+</Layout>
