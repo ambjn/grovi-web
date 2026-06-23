@@ -3,24 +3,28 @@
 @theme {
   --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
 
-  --color-background: #fdf9ff;
-  --color-foreground: #1c1625;
-  --color-card: #ffffff;
-  --color-card-foreground: #1c1625;
+  --color-background: #fffbeb;
+  --color-foreground: #171717;
+  --color-card: #fef3c7;
+  --color-card-foreground: #171717;
   --color-primary: #7c3aed;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #f5f2fc;
-  --color-secondary-foreground: #756e82;
-  --color-muted: #f5f2fc;
-  --color-muted-foreground: #756e82;
-  --color-muted-faint: #a89fb5;
+  --color-secondary: #fef3c7;
+  --color-secondary-foreground: #57534e;
+  --color-muted: #fef3c7;
+  --color-muted-foreground: #57534e;
+  --color-muted-faint: #a8a29e;
   --color-accent: rgba(124, 58, 237, 0.08);
   --color-accent-foreground: #7c3aed;
-  --color-border: #e8e1f0;
-  --color-border-strong: rgba(28, 22, 37, 0.14);
+  --color-border: #e7e0d1;
+  --color-border-strong: rgba(23, 23, 23, 0.14);
   --color-destructive: #e64457;
   --color-positive: #059669;
   --color-warning: #d97706;
+
+  --color-surface: #fffbeb;
+  --color-surface-muted: #fef3c7;
+  --color-surface-glass: rgba(255, 251, 235, 0.7);
 
   --color-brand-50: #f7f0ff;
   --color-brand-100: #ecdcff;
@@ -85,9 +89,9 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(28, 22, 37, 0.12);
+  background: rgba(23, 23, 23, 0.12);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(28, 22, 37, 0.22);
+  background: rgba(23, 23, 23, 0.22);
 }
