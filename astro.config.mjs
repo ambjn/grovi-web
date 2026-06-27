@@ -9,7 +9,14 @@ export default defineConfig({
   site: 'https://grovi.app',
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    define: {
+      'process.env': '{}',
+      'process.stdout': '({write:()=>{}})',
+      'process.stderr': '({write:()=>{}})',
+      'process.versions': '{}',
+      'process.platform': '"linux"',
+    },
   },
 
   adapter: cloudflare()

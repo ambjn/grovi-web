@@ -1,36 +1,333 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { SITE_URL } from '@/lib/constants';
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "@id": `${SITE_URL}/#app`,
+      name: "Grovi",
+      description: "Describe a game idea in chat, get a real playable mini-game in seconds. Publish, discover, and remix what others build.",
+      applicationCategory: "GameApplication",
+      operatingSystem: "iOS, Android",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/`,
+      url: SITE_URL,
+      name: "Grovi – Turn Ideas Into Playable Mini-Games",
+      description: "Describe a game idea in chat, get a real playable mini-game in seconds. Publish, discover, and remix what others build.",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+  ],
+});
 ---
 
 <Layout
-  title="Grovi – Launching Soon"
-  description="Grovi turns your ideas into playable mini apps. Launching soon."
+  title="Grovi – Turn Ideas Into Playable Mini-Games"
+  description="Describe a game idea in chat, get a real playable mini-game in seconds. Publish it, share it, remix it. No code required."
   canonical={SITE_URL}
-  ogTitle="Grovi – Launching Soon"
-  ogDescription="Grovi turns your ideas into playable mini apps. Launching soon."
+  ogTitle="Grovi – Turn Ideas Into Playable Mini-Games"
+  ogDescription="Describe a game idea in chat, get a real playable mini-game in seconds. Publish it, share it, remix it."
   ogUrl={SITE_URL}
-  twitterDescription="Grovi turns your ideas into playable mini apps. Launching soon."
+  extraJsonLd={jsonLd}
 >
-  <main class="min-h-screen flex items-center justify-center px-5 overflow-hidden relative">
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      <div class="absolute top-0 left-1/4 w-[260px] h-[260px] sm:w-[500px] sm:h-[500px] bg-brand-400/[0.1] sm:bg-brand-400/[0.08] blur-[90px] sm:blur-[140px] rounded-full"></div>
-      <div class="absolute bottom-1/4 right-[10%] w-[220px] h-[220px] sm:w-[400px] sm:h-[400px] bg-blush-400/8 sm:bg-blush-400/6 blur-[90px] sm:blur-[130px] rounded-full"></div>
-    </div>
-    <div class="relative z-10 flex flex-col items-center text-center fade-up">
-      <div class="relative mb-6">
-        <div class="absolute inset-0 bg-brand-400/30 blur-2xl rounded-full -z-10"></div>
-        <img
-          src="/adaptive-icon.png"
-          alt="Grovi"
-          width="300"
-          height="300"
-          fetchpriority="high"
-          class="w-36 h-36 sm:w-44 sm:h-44 rounded-[2.4rem] shadow-lg shadow-brand-500/20"
-        />
+  <!-- NAV -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 sm:px-8 h-14 sm:h-16 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <a href="/" class="flex items-center gap-2.5 group">
+      <img src="/icon-transparent.png" alt="Grovi" width="32" height="32" class="w-8 h-8 drop-shadow-sm" />
+      <span class="font-semibold text-lg tracking-tight text-foreground">grovi</span>
+    </a>
+    <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+      <a href="#how-it-works" class="hover:text-foreground transition-colors">How it works</a>
+      <a href="#features" class="hover:text-foreground transition-colors">Features</a>
+      <a href="/support" class="hover:text-foreground transition-colors">Support</a>
+    </nav>
+    <a
+      href="https://testflight.apple.com/join/d7ZHMurt"
+      class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold shadow-sm hover:bg-primary/90 active:scale-95 transition-all duration-150"
+    >
+      <img src="/testflight-logo.webp" alt="" width="16" height="16" class="w-4 h-4 rounded-sm" />
+      TestFlight
+    </a>
+  </header>
+
+  <main class="pt-14 sm:pt-16 overflow-x-hidden">
+
+    <!-- HERO -->
+    <section class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-5 py-20 sm:py-28">
+      <!-- Blobs -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-brand-400/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-1/4 w-[320px] h-[320px] bg-blush-400/8 blur-[100px] rounded-full"></div>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-3">Grovi Builds</h1>
-      <p class="text-sm font-semibold uppercase text-balance">Launching Soon</p>
-    </div>
+
+      <div class="relative z-10 flex flex-col items-center">
+        <!-- Badge -->
+        <div class="fade-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-200 bg-brand-50 text-brand-600 text-xs font-semibold uppercase tracking-wide mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+          Now in TestFlight
+        </div>
+
+        <!-- Headline -->
+        <h1 class="fade-up text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-foreground leading-[1.1] mb-5 max-w-2xl" style="--fu-delay: 80ms">
+          describe it.<br />
+          <span class="text-primary">play it.</span>
+        </h1>
+
+        <p class="fade-up text-lg sm:text-xl text-muted-foreground max-w-md leading-relaxed mb-8" style="--fu-delay: 160ms">
+          Type a game idea in chat. Grovi builds a real, playable mini-game from it — instantly, on your phone.
+        </p>
+
+        <!-- CTAs -->
+        <div class="fade-up flex flex-col sm:flex-row items-center gap-3 mb-16" style="--fu-delay: 240ms">
+          <a
+            href="https://testflight.apple.com/join/d7ZHMurt"
+            class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-primary text-white font-semibold shadow-lg shadow-brand-500/25 hover:bg-primary/90 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
+          >
+            <img src="/testflight-logo.webp" alt="" width="20" height="20" class="w-5 h-5 rounded-md" />
+            Join the TestFlight beta
+          </a>
+          <a
+            href="#how-it-works"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card/60 text-foreground font-medium hover:border-brand-300 hover:bg-brand-50 transition-all duration-200"
+          >
+            See how it works
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 2l5 5-5 5M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Phone mockup hero -->
+        <div class="fade-up relative w-[260px] sm:w-[300px]" style="--fu-delay: 320ms">
+          <!-- Screenshot behind the frame -->
+          <img
+            src="/home-screen.png"
+            alt="Grovi create screen"
+            width="300"
+            height="649"
+            fetchpriority="high"
+            class="absolute inset-0 w-full h-full object-cover rounded-[2.6rem] sm:rounded-[3rem]"
+            style="clip-path: inset(4.5% 3% 4.5% 3% round 2.4rem)"
+          />
+          <!-- Frame overlay with ghost -->
+          <img
+            src="/frame-cutout.png"
+            alt=""
+            width="300"
+            height="649"
+            fetchpriority="high"
+            class="relative z-10 w-full drop-shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-20 sm:py-28 px-5">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14 fade-up">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-3">How it works</p>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">From idea to game in three steps</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          <!-- Step 1 -->
+          <div class="fade-up group relative rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 hover:bg-brand-50/40 transition-all duration-300" style="--fu-delay: 60ms">
+            <div class="w-11 h-11 rounded-2xl bg-brand-100 flex items-center justify-center mb-5">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="text-brand-600">
+                <path d="M3 5h16M3 11h10M3 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-400 mb-2">Step 1</div>
+            <h3 class="text-lg font-semibold text-foreground mb-2">Describe your idea</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">Type anything — "a snake game that speeds up", "whack-a-mole with emojis", or just vibe about it in the chat. Grovi figures it out.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="fade-up group relative rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 hover:bg-brand-50/40 transition-all duration-300" style="--fu-delay: 130ms">
+            <div class="w-11 h-11 rounded-2xl bg-brand-100 flex items-center justify-center mb-5">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="text-brand-600">
+                <path d="M11 2l2.4 7.2H19l-5.2 3.8 2 6-4.8-3.5L6.2 19l2-6L3 9.2h5.6L11 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-400 mb-2">Step 2</div>
+            <h3 class="text-lg font-semibold text-foreground mb-2">Grovi builds it</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">An AI writes the full game code, validates it runs correctly, and auto-fixes any bugs — all before you see it. Usually under 30 seconds.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="fade-up group relative rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 hover:bg-brand-50/40 transition-all duration-300" style="--fu-delay: 200ms">
+            <div class="w-11 h-11 rounded-2xl bg-brand-100 flex items-center justify-center mb-5">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="text-brand-600">
+                <circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8.5 7.5l6 3.5-6 3.5V7.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="text-xs font-bold uppercase tracking-widest text-brand-400 mb-2">Step 3</div>
+            <h3 class="text-lg font-semibold text-foreground mb-2">Play, edit, share</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">Play your game right in the app. Edit it with another instruction. Publish it so others can discover, like, and remix it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="py-6 sm:py-10 px-5 overflow-x-hidden">
+      <div class="max-w-5xl mx-auto">
+        <div class="fade-up text-center mb-12">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-3">The app</p>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">Everything in one place</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 sm:gap-8 items-start">
+          <div class="fade-up flex flex-col items-center gap-3" style="--fu-delay: 0ms">
+            <div class="relative w-full max-w-[200px] mx-auto">
+              <img
+                src="/ss-create.png"
+                alt="Create screen — describe your game idea"
+                width="390"
+                height="844"
+                class="w-full rounded-[1.6rem] sm:rounded-[2rem] border-2 border-black/8 shadow-xl shadow-foreground/10"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-sm font-medium text-foreground text-center">Create</p>
+            <p class="text-xs text-muted-foreground text-center leading-snug">Describe your idea, chat to refine it, then hit generate</p>
+          </div>
+
+          <div class="fade-up flex flex-col items-center gap-3" style="--fu-delay: 80ms">
+            <div class="relative w-full max-w-[200px] mx-auto mt-6 sm:mt-10">
+              <img
+                src="/ss-discover.png"
+                alt="Discover feed — browse published grovs"
+                width="390"
+                height="844"
+                class="w-full rounded-[1.6rem] sm:rounded-[2rem] border-2 border-black/8 shadow-xl shadow-foreground/10"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-sm font-medium text-foreground text-center">Discover</p>
+            <p class="text-xs text-muted-foreground text-center leading-snug">Browse, like, and remix games published by everyone</p>
+          </div>
+
+          <div class="fade-up flex flex-col items-center gap-3" style="--fu-delay: 160ms">
+            <div class="relative w-full max-w-[200px] mx-auto">
+              <img
+                src="/ss-profile.png"
+                alt="Profile — your grovs and stats"
+                width="390"
+                height="844"
+                class="w-full rounded-[1.6rem] sm:rounded-[2rem] border-2 border-black/8 shadow-xl shadow-foreground/10"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-sm font-medium text-foreground text-center">Profile</p>
+            <p class="text-xs text-muted-foreground text-center leading-snug">Track your grovs, followers, karma, and credits</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-20 sm:py-28 px-5">
+      <div class="max-w-4xl mx-auto">
+        <div class="fade-up text-center mb-14">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-500 mb-3">Features</p>
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">Built for making and playing</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="fade-up rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 transition-colors duration-300" style="--fu-delay: 0ms">
+            <div class="text-2xl mb-4">🎮</div>
+            <h3 class="text-base font-semibold text-foreground mb-2">Real playable games</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">Every Grov is a fully functional, touch-native game — not a prototype. Tap, swipe, and play right in the app with haptic feedback and sound.</p>
+          </div>
+
+          <div class="fade-up rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 transition-colors duration-300" style="--fu-delay: 60ms">
+            <div class="text-2xl mb-4">✏️</div>
+            <h3 class="text-base font-semibold text-foreground mb-2">Edit with plain language</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">Not happy with something? Just say what to change — "make it faster", "add a power-up", "change the colors to blue". No code, no drag-and-drop.</p>
+          </div>
+
+          <div class="fade-up rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 transition-colors duration-300" style="--fu-delay: 120ms">
+            <div class="text-2xl mb-4">🌐</div>
+            <h3 class="text-base font-semibold text-foreground mb-2">Publish & share</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">Publish a Grov to the Discover feed and get your own share link that previews in iMessage, WhatsApp, and anywhere else. One tap to send.</p>
+          </div>
+
+          <div class="fade-up rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 transition-colors duration-300" style="--fu-delay: 180ms">
+            <div class="text-2xl mb-4">🔁</div>
+            <h3 class="text-base font-semibold text-foreground mb-2">Remix anyone's game</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">See a game you love? Remix it — you get your own copy to edit however you want. Every remix links back to the original creator.</p>
+          </div>
+
+          <div class="fade-up rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 transition-colors duration-300" style="--fu-delay: 240ms">
+            <div class="text-2xl mb-4">👥</div>
+            <h3 class="text-base font-semibold text-foreground mb-2">Follow creators</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">Follow the people making the games you like. Like, comment, and earn karma as your games get discovered and remixed by others.</p>
+          </div>
+
+          <div class="fade-up rounded-3xl border border-border bg-card/50 p-7 hover:border-brand-200 transition-colors duration-300" style="--fu-delay: 300ms">
+            <div class="text-2xl mb-4">🔔</div>
+            <h3 class="text-base font-semibold text-foreground mb-2">Stay in the loop</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">Get notified when your game finishes building, when someone likes or remixes it, when you gain a follower, or when you hit a karma milestone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="py-16 sm:py-24 px-5">
+      <div class="max-w-2xl mx-auto">
+        <div class="fade-up relative rounded-4xl border border-brand-200/60 bg-brand-50/60 px-8 py-14 sm:px-14 sm:py-16 text-center overflow-hidden">
+          <!-- Glow -->
+          <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div class="w-64 h-64 bg-brand-400/15 blur-[80px] rounded-full"></div>
+          </div>
+          <!-- Ghost -->
+          <img
+            src="/icon-transparent.png"
+            alt=""
+            width="80"
+            height="80"
+            class="relative w-20 h-20 mx-auto mb-5 drop-shadow-md"
+            loading="lazy"
+          />
+          <h2 class="relative text-2xl sm:text-3xl font-semibold text-foreground tracking-tight mb-3">Ready to build your first Grov?</h2>
+          <p class="relative text-muted-foreground mb-8 max-w-sm mx-auto">Join the beta on TestFlight. It's free to try — 300 credits included, no payment required.</p>
+          <a
+            href="https://testflight.apple.com/join/d7ZHMurt"
+            class="relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-primary text-white font-semibold shadow-lg shadow-brand-500/30 hover:bg-primary/90 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
+          >
+            <img src="/testflight-logo.webp" alt="" width="20" height="20" class="w-5 h-5 rounded-md" />
+            Get early access on TestFlight
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border px-5 py-10">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2.5">
+        <img src="/icon-transparent.png" alt="Grovi" width="28" height="28" class="w-7 h-7" />
+        <span class="font-semibold text-foreground">grovi</span>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+        <a href="/terms" class="hover:text-foreground transition-colors">Terms</a>
+        <a href="/privacy" class="hover:text-foreground transition-colors">Privacy</a>
+        <a href="/support" class="hover:text-foreground transition-colors">Support</a>
+        <a href="mailto:support@buildwithgrovi.xyz" class="hover:text-foreground transition-colors">support@buildwithgrovi.xyz</a>
+      </nav>
+      <p class="text-xs text-muted-foreground/60">© 2026 Grovi</p>
+    </div>
+  </footer>
 </Layout>
