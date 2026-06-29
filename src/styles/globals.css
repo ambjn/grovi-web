@@ -6,45 +6,13 @@
   --color-background: #fffbeb;
   --color-foreground: #171717;
   --color-card: #fef3c7;
-  --color-card-foreground: #171717;
   --color-primary: #7c3aed;
   --color-primary-foreground: #ffffff;
   --color-secondary: #fef3c7;
-  --color-secondary-foreground: #57534e;
-  --color-muted: #fef3c7;
   --color-muted-foreground: #57534e;
-  --color-muted-faint: #a8a29e;
-  --color-accent: rgba(124, 58, 237, 0.08);
-  --color-accent-foreground: #7c3aed;
   --color-border: #e7e0d1;
-  --color-border-strong: rgba(23, 23, 23, 0.14);
-  --color-destructive: #e64457;
-  --color-positive: #059669;
-  --color-warning: #d97706;
 
-  --color-surface: #fffbeb;
-  --color-surface-muted: #fef3c7;
-  --color-surface-glass: rgba(255, 251, 235, 0.7);
-
-  --color-brand-50: #f7f0ff;
-  --color-brand-100: #ecdcff;
-  --color-brand-200: #dbbdff;
-  --color-brand-300: #c79aff;
-  --color-brand-400: #ad73fc;
   --color-brand-500: #9355ef;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6427c9;
-  --color-brand-800: #4f1ea3;
-  --color-brand-900: #3a1777;
-
-  --color-blush-50: #fff1f2;
-  --color-blush-100: #ffe1e4;
-  --color-blush-200: #ffc2c9;
-  --color-blush-300: #fea7b1;
-  --color-blush-400: #fd8996;
-  --color-blush-500: #f96b79;
-  --color-blush-600: #e64457;
-  --color-blush-700: #c92e44;
 }
 
 ::selection {
