@@ -109,13 +109,10 @@ export function renderContentToHtml(content: string): string {
     if (block.type === "p") {
       return `<p class="text-[1.0625rem] text-muted-foreground leading-[1.8] mb-5">${parseInlineToHtml(block.text)}</p>`;
     }
-    if (block.type === "ul") {
-      const items = block.items.map((item) => `<li class="text-[1.0625rem] text-muted-foreground leading-[1.8] list-disc">${parseInlineToHtml(item)}</li>`).join("\n");
-      return `<ul class="mb-5 space-y-2 pl-5">\n${items}\n</ul>`;
-    }
-    if (block.type === "ol") {
-      const items = block.items.map((item) => `<li class="text-[1.0625rem] text-muted-foreground leading-[1.8] list-decimal">${parseInlineToHtml(item)}</li>`).join("\n");
-      return `<ol class="mb-5 space-y-2 pl-5">\n${items}\n</ol>`;
+    if (block.type === "ul" || block.type === "ol") {
+      const marker = block.type === "ul" ? "list-disc" : "list-decimal";
+      const items = block.items.map((item) => `<li class="text-[1.0625rem] text-muted-foreground leading-[1.8] ${marker}">${parseInlineToHtml(item)}</li>`).join("\n");
+      return `<${block.type} class="mb-5 space-y-2 pl-5">\n${items}\n</${block.type}>`;
     }
     return "";
   }).join("\n");

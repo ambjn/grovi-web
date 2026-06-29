@@ -2,6 +2,9 @@
 import Layout from '@/layouts/Layout.astro';
 import { SITE_URL } from '@/lib/constants';
 
+const title = "Grovi Studio | Turn Ideas Into Playable Mini-Games";
+const description = "Describe a game idea in chat, get a real playable mini-game in seconds. Publish it, share it, remix it. No code required.";
+
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
@@ -19,7 +22,7 @@ const jsonLd = JSON.stringify({
       "@type": "WebPage",
       "@id": `${SITE_URL}/`,
       url: SITE_URL,
-      name: "Grovi Studio | Turn Ideas Into Playable Mini-Games",
+      name: title,
       description: "Describe a game idea in chat, get a real playable mini-game in seconds. Publish, discover, and remix what others build.",
       isPartOf: { "@id": `${SITE_URL}/#website` },
     },
@@ -27,15 +30,9 @@ const jsonLd = JSON.stringify({
 });
 ---
 
-<Layout
-  title="Grovi Studio | Turn Ideas Into Playable Mini-Games"
-  description="Describe a game idea in chat, get a real playable mini-game in seconds. Publish it, share it, remix it. No code required."
-  canonical={SITE_URL}
-  extraJsonLd={jsonLd}
->
+<Layout {title} {description} canonical={SITE_URL} extraJsonLd={jsonLd}>
   <main class="min-h-screen flex flex-col">
-    <div class="flex-1 flex flex-col items-center justify-center pt-16 sm:pt-24">
-    <section class="flex items-center justify-center px-4 sm:px-6 pb-6 sm:pb-8">
+    <section class="flex-1 flex items-center justify-center px-4 sm:px-6 pt-16 sm:pt-24 pb-6 sm:pb-8">
       <div class="flex flex-col sm:flex-row sm:items-end gap-10 sm:gap-20 w-full sm:w-auto">
 
         <div class="fade-up flex flex-col items-center">
@@ -53,36 +50,17 @@ const jsonLd = JSON.stringify({
         <hr class="sm:hidden w-64 mx-auto border-foreground/20" />
 
         <div class="fade-up flex flex-col items-center text-center" style="--fu-delay: 80ms">
-          <h1
-            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground leading-[1.1] mb-6 max-w-md"
-          >
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground leading-[1.1] mb-6 max-w-md">
             describe it.<br />
             <span class="text-primary">play it.</span>
           </h1>
-
-          <p
-            class="text-lg sm:text-xl text-muted-foreground max-w-sm leading-loose"
-          >
-            type a game idea in chat. Grovi builds a real, playable mini-game instantly, on your phone.
+          <p class="text-lg sm:text-xl text-muted-foreground max-w-sm leading-loose">
+            {"type a game idea in chat.\nGrovi builds a real, playable mini-game instantly,\non your phone."}
           </p>
         </div>
+
       </div>
     </section>
-
-    <div class="flex justify-center py-10">
-      <a
-        href="https://testflight.apple.com/join/d7ZHMurt"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl bg-primary text-primary-foreground text-base sm:text-lg font-semibold hover:opacity-90 transition-opacity"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
-        Try on TestFlight
-      </a>
-    </div>
-    </div>
 
     <footer class="border-t border-border px-5 py-10">
       <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">

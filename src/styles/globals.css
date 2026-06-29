@@ -21,11 +21,6 @@
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   background-image: radial-gradient(
     circle,
     rgba(124, 58, 237, 0.05) 1px,
