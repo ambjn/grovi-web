@@ -18,7 +18,7 @@ When you first open grovi, the app generates a random identifier and stores it o
 
 ### Photos you send for an AI Look
 
-When you tap "Develop" on an AI Look, the selected photo is uploaded to our backend (Convex) and forwarded to the AI image provider (fal.ai) with the Look's prompt. The result is stored so your app can download it, and the uploaded original is deleted from our storage as soon as the job completes, whether it succeeded or failed. Results are kept so you can re-download them; delete them from the app's Settings → Delete all shots & data, or email us.
+When you tap "Develop" on an AI Look, the selected photo is uploaded to our backend (Convex) and forwarded to the AI image provider (Google's Gemini image model, via OpenRouter) with the Look's prompt. The result is stored so your app can download it, and the uploaded original is deleted from our storage as soon as the job completes, whether it succeeded or failed. Results are kept so you can re-download them; delete them from the app's Settings → Delete all shots & data, or email us.
 
 ### Purchase state
 
@@ -45,7 +45,7 @@ We may collect product analytics (which camera you selected, whether a shot was 
 ## Third-party services
 
 - **Convex** — backend that holds AI Look jobs, results, your credits ledger and purchase state. [Convex Privacy Policy](https://www.convex.dev/privacy)
-- **fal.ai** — runs the AI image model for Looks. Receives the uploaded photo and the Look prompt for the duration of the job. [fal.ai Privacy Policy](https://fal.ai/privacy)
+- **OpenRouter / Google** — OpenRouter routes the Look request to Google's Gemini image model. They receive the uploaded photo and the Look prompt for the duration of the job. [OpenRouter Privacy Policy](https://openrouter.ai/privacy) · [Google Privacy Policy](https://policies.google.com/privacy)
 - **RevenueCat** — subscriptions and purchases, on top of Apple's App Store. [RevenueCat Privacy Policy](https://www.revenuecat.com/privacy)
 - **PostHog** — product analytics. [PostHog Privacy Policy](https://posthog.com/privacy)
 - **Sentry** — crash reporting. [Sentry Privacy Policy](https://sentry.io/privacy/)
