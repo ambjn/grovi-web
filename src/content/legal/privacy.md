@@ -1,66 +1,77 @@
 ## Privacy Policy
 
-Grovi is a mobile app that generates playable HTML mini-games from your ideas. This policy explains what information we collect, how we use it, and your choices.
+grovi is a camera app. Your photos live on your phone. This policy explains the small amount of data that does leave your device, why, and what you can do about it.
+
+## The short version
+
+- There are no accounts. grovi identifies your install with a random anonymous ID.
+- Photos, negatives and your roll are stored only on your device.
+- A photo is uploaded only when you ask for an AI Look. It is sent to our backend, passed to the AI provider for that one job, and deleted from our servers when the job finishes.
+- Purchases are handled by Apple and RevenueCat. We never see your payment details.
+- We do not sell your data and we do not use it for advertising or tracking.
 
 ## What we collect
 
-### Account information
+### Anonymous device ID
 
-When you sign in with Google or Apple, Clerk (our authentication provider) handles the OAuth flow and provides us with your name, email address, and profile picture URL. We store your email and a username derived at account creation. We do not store your OAuth credentials or passwords.
+When you first open grovi, the app generates a random identifier and stores it on your device. It is not derived from your name, Apple ID, phone number or hardware serial. We use it to keep your AI credits balance and purchase state, and to tag crash reports and usage events.
 
-### Content you create
+### Photos you send for an AI Look
 
-We store the prompts you submit, the AI-generated HTML for each Grov you create, your edit history, and any social actions you take (likes, follows, remixes, reports).
+When you tap "Develop" on an AI Look, the selected photo is uploaded to our backend (Convex) and forwarded to the AI image provider (fal.ai) with the Look's prompt. The result is stored so your app can download it, and the uploaded original is deleted from our storage as soon as the job completes, whether it succeeded or failed. Results are kept so you can re-download them; delete them from the app's Settings → Delete all shots & data, or email us.
 
-### Usage data
+### Purchase state
 
-We record when Grovs are played (play counts) and which notification preferences you set. We do not currently use third-party analytics. Crash and error reporting may be added in a future update; this policy will be updated when that happens.
+If you buy grovi Pro or a credit pack, RevenueCat tells our backend which product was purchased and whether your subscription is active, keyed by your anonymous ID. We store that status and a credits ledger. We do not receive your name, card, or Apple ID.
 
-### Push notification tokens
+### Usage and crash data
 
-If you enable push notifications, your device push token is stored so we can deliver notifications about likes, follows, remixes, and generation results. You can disable notifications at any time in the app's Settings screen or in your device's system settings.
+We may collect product analytics (which camera you selected, whether a shot was taken, whether a paywall was shown) through PostHog, and crash reports through Sentry. These are tied to the anonymous ID only. The camera preview, your photos and your negatives are never included.
 
-## How we use your information
+## What we do not collect
 
-We use your information only to operate Grovi:
+- No camera feed is ever streamed or uploaded.
+- No photo is uploaded unless you explicitly start an AI Look for it.
+- No contacts, location, microphone, or precise device identifiers.
+- No account, email or password, unless you choose to email support.
 
-- to authenticate your account and keep it secure
-- to generate Grovs from your prompts (your prompt text is sent to OpenRouter, which routes it to an AI model to produce the game HTML)
-- to display your profile, Grovs, and social activity within the app
-- to deliver push notifications you have opted into
-- to enforce our [Terms of Service](/terms) and handle content reports
+## How we use information
 
-We do not sell your personal information. We do not use your information for advertising.
+- to run the AI Look you requested and return the result to your device
+- to apply purchases and keep your credits balance correct across reinstalls
+- to understand which features are used and fix crashes
+- to enforce our [Terms of Service](/terms), including the AI content safety filter
 
 ## Third-party services
 
-Grovi relies on a small number of third-party providers to operate:
+- **Convex** — backend that holds AI Look jobs, results, your credits ledger and purchase state. [Convex Privacy Policy](https://www.convex.dev/privacy)
+- **fal.ai** — runs the AI image model for Looks. Receives the uploaded photo and the Look prompt for the duration of the job. [fal.ai Privacy Policy](https://fal.ai/privacy)
+- **RevenueCat** — subscriptions and purchases, on top of Apple's App Store. [RevenueCat Privacy Policy](https://www.revenuecat.com/privacy)
+- **PostHog** — product analytics. [PostHog Privacy Policy](https://posthog.com/privacy)
+- **Sentry** — crash reporting. [Sentry Privacy Policy](https://sentry.io/privacy/)
 
-- **Clerk** — authentication (Google and Apple OAuth). [Clerk Privacy Policy](https://clerk.com/privacy)
-- **Convex** — backend database and server functions where your account data and Grovs are stored. [Convex Privacy Policy](https://www.convex.dev/privacy)
-- **OpenRouter / Anthropic** — your prompt text is sent to OpenRouter to generate game HTML. OpenRouter routes requests to Anthropic's Claude models. [OpenRouter Privacy Policy](https://openrouter.ai/privacy) · [Anthropic Privacy Policy](https://www.anthropic.com/privacy)
-- **Expo** — push notification delivery for iOS and Android. [Expo Privacy Policy](https://expo.dev/privacy)
+Each provider processes data under its own terms. We send each one only what its function needs.
 
-Each provider processes data under its own terms. We share only what is necessary for the specific function (for example, your prompt text for generation, your push token for notifications).
+## AI content and safety
+
+AI Looks are generated by an image model from your photo and a fixed prompt. Prompts are written to preserve the person's identity. Generated images are checked by the provider's safety filter; results flagged as explicit are rejected and your credit is refunded. AI Looks are only available to people 16 and over, and the app asks you to confirm this.
 
 ## Data retention
 
-Your account data is retained for as long as your account is active. When you delete your account, your profile and personal information are removed from our systems. Published Grovs are unpublished immediately. Some metadata (such as play counts already recorded) may remain in aggregate form.
-
-Data held by our third-party providers is subject to their own retention policies.
+Everything on your device stays until you delete it from the app or uninstall. On our servers: uploaded photos are deleted when the job completes; AI results, job records, the credits ledger and purchase state are kept while they are associated with your anonymous ID. Email us to have them deleted.
 
 ## Children's privacy
 
-Grovi is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with their information, please contact us at [support@buildwithgrovi.xyz](mailto:support@buildwithgrovi.xyz) and we will delete it promptly.
+grovi is not directed at children under 13, and AI Looks require you to be 16 or older. If you believe a child has used the AI Looks feature, contact [support@buildwithgrovi.xyz](mailto:support@buildwithgrovi.xyz) and we will delete the associated data.
 
 ## Your rights
 
-Depending on where you live, you may have the right to access, correct, or delete the personal information we hold about you. You can delete your account directly from the Settings screen, which removes your profile data. For other requests, email [support@buildwithgrovi.xyz](mailto:support@buildwithgrovi.xyz).
+Depending on where you live, you may have the right to access, correct or delete personal data we hold. Because we only hold an anonymous ID, include the ID shown in the app's Settings screen when you email [support@buildwithgrovi.xyz](mailto:support@buildwithgrovi.xyz) so we can find your records.
 
 ## Changes to this policy
 
-We may update this policy as the app evolves. Material changes will be reflected in the "Last updated" date at the top of this page. Continued use of Grovi after a change constitutes acceptance of the updated policy.
+We may update this policy as the app evolves. Material changes will be reflected in the "Last updated" date at the top of this page.
 
 ## Contact
 
-Questions or requests about your privacy? Email us at [support@buildwithgrovi.xyz](mailto:support@buildwithgrovi.xyz).
+Questions about your privacy? Email [support@buildwithgrovi.xyz](mailto:support@buildwithgrovi.xyz).
