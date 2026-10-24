@@ -1,29 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
-  --color-background: #fffbeb;
-  --color-foreground: #171717;
-  --color-card: #fef3c7;
-  --color-primary: #7c3aed;
+  --color-background: #F3EAD8;
+  --color-foreground: #0B0B0C;
+  --color-card: #FBF5E9;
+  --color-primary: #FF6A2B;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #fef3c7;
-  --color-muted-foreground: #57534e;
-  --color-border: #e7e0d1;
+  --color-secondary: #EADFCB;
+  --color-muted-foreground: #5A5249;
+  --color-border: #D9CFBF;
 
-  --color-brand-500: #9355ef;
+  --color-brand-500: #FFA136;
 }
 
 ::selection {
-  background-color: rgba(124, 58, 237, 0.18);
+  background-color: rgba(255, 106, 43, 0.22);
   color: var(--color-foreground);
 }
 
 body {
   background-image: radial-gradient(
     circle,
-    rgba(124, 58, 237, 0.05) 1px,
+    rgba(11, 11, 12, 0.06) 1px,
     transparent 1px
   );
   background-size: 28px 28px;

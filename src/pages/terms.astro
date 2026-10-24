@@ -13,7 +13,7 @@ const jsonLd = JSON.stringify({
     {
       "@type": "WebPage",
       "@id": `${SITE_URL}/terms`,
-      name: "Terms of Service | Grovi Studio",
+      name: "Terms of Service | grovi",
       url: `${SITE_URL}/terms`,
       isPartOf: { "@id": `${SITE_URL}/#website` },
     },
@@ -29,12 +29,12 @@ const jsonLd = JSON.stringify({
 ---
 
 <Layout
-  title="Terms of Service | Grovi Studio"
-  description="Terms of service for Grovi Studio | describe an idea, get a playable mini app. Read about accounts, publishing, remixing, credits, and your rights."
+  title="Terms of Service | grovi"
+  description="Terms of service for grovi: age requirements, your photos, AI Looks rules, credits, grovi Pro subscriptions and refunds."
   canonical={`${SITE_URL}/terms`}
   extraJsonLd={jsonLd}
 >
-  <LegalPageLayout title="Terms of Service" subtitle="Last updated: June 2026">
+  <LegalPageLayout title="Terms of Service" subtitle="Last updated: October 2026">
     <div set:html={contentHtml} />
   </LegalPageLayout>
 </Layout>

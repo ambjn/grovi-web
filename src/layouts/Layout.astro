@@ -19,10 +19,10 @@ const rootJsonLd = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "Grovi Studio",
+      name: "grovi",
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: ogImage, width: 1024, height: 1024 },
-      description: "Grovi Studio turns your ideas into fun, personal mini apps. Built right from your phone, no code required.",
+      description: "grovi is a film and digicam camera app for iPhone. Pick a camera, shoot, that's the whole edit. AI Looks when you want the full vibe.",
       contactPoint: {
         "@type": "ContactPoint",
         email: "support@buildwithgrovi.xyz",
@@ -33,8 +33,8 @@ const rootJsonLd = {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "Grovi Studio | Turn Ideas Into Playable Mini-Games",
-      description: "Describe an idea in chat, get a real, playable mini-game in seconds. Publish, discover, and remix what others build.",
+      name: "grovi | Your camera, but it has taste",
+      description: "Film and digicam cameras that shoot the look live. No editing. AI Looks in the cloud.",
       inLanguage: "en-US",
       publisher: { "@id": `${SITE_URL}/#organization` },
     },
@@ -49,11 +49,11 @@ const rootJsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter+Tight:wght@300;400;500;600&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="icon" href="/icon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
-    <meta name="theme-color" content="#fffbeb" />
+    <meta name="theme-color" content="#F3EAD8" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -63,11 +63,11 @@ const rootJsonLd = {
     <meta name="description" content={description} />
     {canonical && <link rel="canonical" href={canonical} />}
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="author" content="Grovi Studio" />
+    <meta name="author" content="grovi" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Grovi Studio" />
+    <meta property="og:site_name" content="grovi" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}

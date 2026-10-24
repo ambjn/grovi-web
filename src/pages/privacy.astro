@@ -13,9 +13,9 @@ const jsonLd = JSON.stringify({
     {
       "@type": "WebPage",
       "@id": `${SITE_URL}/privacy`,
-      name: "Privacy Policy | Grovi Studio",
+      name: "Privacy Policy | grovi",
       url: `${SITE_URL}/privacy`,
-      description: "How Grovi Studio collects, uses, and protects your account and content data.",
+      description: "How grovi handles your photos: everything stays on your phone unless you start an AI Look, and that upload is deleted when the job finishes. Anonymous ID, no accounts, no tracking.",
       isPartOf: { "@id": `${SITE_URL}/#website` },
     },
     {
@@ -30,12 +30,12 @@ const jsonLd = JSON.stringify({
 ---
 
 <Layout
-  title="Privacy Policy | Grovi Studio"
-  description="How Grovi Studio collects, uses, and protects your account and content data, including AI processing, publishing, and account deletion."
+  title="Privacy Policy | grovi"
+  description="How grovi handles your photos: everything stays on your phone unless you start an AI Look, and that upload is deleted when the job finishes. Anonymous ID, no accounts, no tracking."
   canonical={`${SITE_URL}/privacy`}
   extraJsonLd={jsonLd}
 >
-  <LegalPageLayout title="Privacy Policy" subtitle="Last updated: June 2026">
+  <LegalPageLayout title="Privacy Policy" subtitle="Last updated: October 2026">
     <div set:html={contentHtml} />
   </LegalPageLayout>
 </Layout>
