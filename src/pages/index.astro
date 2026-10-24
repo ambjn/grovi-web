@@ -2,8 +2,19 @@
 import Layout from '@/layouts/Layout.astro';
 import { SITE_URL } from '@/lib/constants';
 
-const title = "Grovi Studio | Turn Ideas Into Playable Mini-Games";
-const description = "Describe a game idea in chat, get a real playable mini-game in seconds. Publish it, share it, remix it. No code required.";
+const title = "grovi | Your camera, but it has taste";
+const description = "Film and digicam cameras that shoot the look live, no editing. Disposable, 2004 digicam, instant, 35 mm, Y2K CCD, photobooth. Add an AI Look when you want the full vibe.";
+
+const cameras = [
+  { badge: "FQ R", name: "Disposable", vibe: "warm greens, heavy grain, a leak now and then", color: "#2F6B3A", tier: "free" },
+  { badge: "DC 02", name: "Digicam 2004", vibe: "hard flash, cool highlights, orange date stamp", color: "#B8B4AD", tier: "free" },
+  { badge: "K 200", name: "Gold 35 mm", vibe: "warm, soft, halation on the highlights", color: "#2A2825", tier: "pro" },
+  { badge: "CCD X", name: "Y2K CCD", vibe: "magenta-cyan, bloom, night flash", color: "#1C1B19", tier: "pro" },
+  { badge: "PF SQ", name: "Instant Square", vibe: "lifted blacks, cream border, develops on screen", color: "#F3EAD8", tier: "pro" },
+  { badge: "BOOTH", name: "Photobooth", vibe: "3-2-1, four frames, one strip", color: "#FF6A2B", tier: "pro" },
+];
+
+const looks = ["Studio Headshot", "Digicam Party 2004", "Y2K Yearbook", "Film Noir", "Anime Cel", "Editorial Flash", "Disposable Wedding", "Polaroid Beach", "90s Mall Portrait", "Night Neon"];
 
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -11,10 +22,10 @@ const jsonLd = JSON.stringify({
     {
       "@type": "MobileApplication",
       "@id": `${SITE_URL}/#app`,
-      name: "Grovi Studio",
-      description: "Describe a game idea in chat, get a real playable mini-game in seconds. Publish, discover, and remix what others build.",
-      applicationCategory: "GameApplication",
-      operatingSystem: "iOS, Android",
+      name: "grovi",
+      description,
+      applicationCategory: "PhotographyApplication",
+      operatingSystem: "iOS",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@id": `${SITE_URL}/#organization` },
     },
@@ -23,7 +34,7 @@ const jsonLd = JSON.stringify({
       "@id": `${SITE_URL}/`,
       url: SITE_URL,
       name: title,
-      description: "Describe a game idea in chat, get a real playable mini-game in seconds. Publish, discover, and remix what others build.",
+      description,
       isPartOf: { "@id": `${SITE_URL}/#website` },
     },
   ],
@@ -32,18 +43,12 @@ const jsonLd = JSON.stringify({
 
 <Layout {title} {description} canonical={SITE_URL} extraJsonLd={jsonLd}>
   <main class="min-h-screen flex flex-col">
-    <section class="flex-1 flex items-center justify-center px-4 sm:px-6 pt-16 sm:pt-24 pb-6 sm:pb-8">
+    <section class="flex-1 flex items-center justify-center px-4 sm:px-6 pt-16 sm:pt-24 pb-10">
       <div class="flex flex-col sm:flex-row sm:items-end gap-10 sm:gap-20 w-full sm:w-auto">
 
         <div class="fade-up flex flex-col items-center">
-          <img
-            src="/icon-transparent.png"
-            alt="Grovi Studio"
-            width="240"
-            height="240"
-            class="w-40 h-40 sm:w-52 sm:h-52 drop-shadow-lg mb-4"
-          />
-          <span class="text-5xl sm:text-6xl font-semibold tracking-tight text-foreground">Grovi Studio</span>
+          <img src="/icon-transparent.png" alt="grovi" width="240" height="240" class="w-40 h-40 sm:w-52 sm:h-52 drop-shadow-lg mb-4" />
+          <span class="text-5xl sm:text-6xl font-semibold tracking-tight text-foreground">grovi</span>
         </div>
 
         <div class="hidden sm:block self-stretch w-px bg-foreground/20"></div>
@@ -51,14 +56,46 @@ const jsonLd = JSON.stringify({
 
         <div class="fade-up flex flex-col items-center text-center" style="--fu-delay: 80ms">
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground leading-[1.1] mb-6 max-w-md">
-            describe it.<br />
-            <span class="text-primary">play it.</span>
+            pick a camera.<br />
+            <span class="text-primary">that's the whole edit.</span>
           </h1>
           <p class="text-lg sm:text-xl text-muted-foreground max-w-sm leading-loose">
-            type a game idea in chat.<br>Grovi builds a real, playable mini-game instantly on your phone.
+            film and digicam looks, shot live.<br />no sliders. no presets tab.<br />your camera, but it has taste.
           </p>
+          <p class="mt-6 text-sm text-muted-foreground/70">iPhone · coming to TestFlight</p>
         </div>
 
+      </div>
+    </section>
+
+    <section class="px-5 sm:px-6 pb-16">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="fade-up text-sm uppercase tracking-[0.2em] text-muted-foreground mb-5">six cameras at launch</h2>
+        <ul class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {cameras.map((c, i) => (
+            <li class="fade-up rounded-2xl border border-border bg-card p-4 flex gap-3 items-start" style={`--fu-delay: ${120 + i * 40}ms`}>
+              <span class="shrink-0 mt-1 w-9 h-9 rounded-md border border-border" style={`background:${c.color}`} aria-hidden="true"></span>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-xs tracking-[0.15em] uppercase text-foreground">{c.badge}</span>
+                  {c.tier === "pro" && <span class="text-[10px] uppercase tracking-wider text-primary">pro · try daily</span>}
+                </div>
+                <p class="text-foreground font-medium">{c.name}</p>
+                <p class="text-sm text-muted-foreground leading-snug">{c.vibe}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <h2 class="fade-up text-sm uppercase tracking-[0.2em] text-muted-foreground mt-14 mb-5" style="--fu-delay: 360ms">ai looks</h2>
+        <p class="fade-up text-muted-foreground max-w-2xl mb-4" style="--fu-delay: 380ms">
+          Re-shoot any photo into a full aesthetic. Your face stays your face. The photo only leaves your phone for the Look you ask for, and is deleted after.
+        </p>
+        <ul class="fade-up flex flex-wrap gap-2" style="--fu-delay: 400ms">
+          {looks.map((l) => (
+            <li class="rounded-full border border-border bg-card px-3 py-1 text-sm text-foreground">{l}</li>
+          ))}
+        </ul>
       </div>
     </section>
 
